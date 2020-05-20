@@ -45,10 +45,10 @@ export class AddTaskPopUpComponent implements OnInit {
     if (this.data.id !== undefined) {
       this.editMode = true;
       this.taskService.getSingleTask(this.data.id).subscribe((res: any) => {
-        this.editedTaskStatus = res.kanbanTask.status;
-        this.taskForm.patchValue({title: res.kanbanTask.title});
-        this.taskForm.patchValue({description: res.kanbanTask.description});
-        this.taskForm.patchValue({block: res.kanbanTask.blocked});
+        this.editedTaskStatus = res.status;
+        this.taskForm.patchValue({title: res.title});
+        this.taskForm.patchValue({description: res.description});
+        this.taskForm.patchValue({block: res.blocked});
         if (res.userList[0] !== undefined) {
           this.selectedUser1 = res.userList[0].name + ' ' + res.userList[0].surname;
         }
@@ -58,7 +58,7 @@ export class AddTaskPopUpComponent implements OnInit {
         if (res.userList[2] !== undefined) {
           this.selectedUser3 = res.userList[2].name + ' ' + res.userList[2].surname;
         }
-        this.selectedColor = res.kanbanTask.color;
+        this.selectedColor = res.color;
       });
       this.taskService.getTasksByPriority().subscribe();
     }
@@ -78,7 +78,8 @@ export class AddTaskPopUpComponent implements OnInit {
       status: this.editMode ? this.editedTaskStatus : this.data.status,
       color: this.selectedColor,
       blocked: this.taskForm.value.block,
-      userList: []
+      userList: [],
+      subtaskList: [],
     };
     const selectedUsers = [this.selectedUser1, this.selectedUser2, this.selectedUser3];
     for (const selectedUser of selectedUsers) {
