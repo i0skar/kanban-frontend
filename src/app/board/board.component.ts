@@ -41,8 +41,8 @@ export class BoardComponent implements OnInit {
   addTaskDialog(status: string) {
     const dialogRef = this.dialogService.openDialog(AddTaskPopUpComponent, {
       data: { status },
-      height: '685px',
-      width: '500px',
+      height: '710px',
+      width: '1000px',
     });
     dialogRef.afterClosed().subscribe(() => {
       this.getTasksByPriority();

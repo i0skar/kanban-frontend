@@ -1,0 +1,41 @@
+.border {
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.label-subtasks {
+    color: rgba(0, 0, 0, 0.363);
+    margin-bottom: 5px;
+}
+
+.single-subtask {
+    background-color: #F0F0F0;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 5px;
+    text-align: center;
+}
+
+::ng-deep {
+    .mat-checkbox-layout {
+        white-space: pre-wrap !important;
+    }
+  }
+
+.new-subtask-button {
+    color: rgb(33, 214, 33);
+    cursor: pointer;
+}
+
+.delete {
+    color: #c81b1b;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+::ng-deep {
+    .mat-checkbox-layout .mat-checkbox-label {
+        word-break: break-word !important;
+    }
+}

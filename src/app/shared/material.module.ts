@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
@@ -23,6 +24,7 @@ const materials = [
     DragDropModule,
     MatTooltipModule,
     MatSnackBarModule,
+    MatDividerModule
 ];
 
 @NgModule({

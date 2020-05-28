@@ -4,6 +4,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
+import { DialogService } from '../../services/dialog.service';
+import { AddSubtaskPopUpComponent } from '../add-subtask-pop-up/add-subtask-pop-up.component';
 
 @Component({
   selector: 'app-add-task-pop-up',
@@ -29,17 +31,20 @@ export class AddTaskPopUpComponent implements OnInit {
   selectedColor = 'none';
   none = 'None';
 
+  subtasks = [];
+
   constructor(private taskService: TaskService,
               private userService: UserService,
               @Inject(MAT_DIALOG_DATA) public data: any,
-              private dialogRef: MatDialogRef<AddTaskPopUpComponent>) { }
+              private dialogRef: MatDialogRef<AddTaskPopUpComponent>,
+              private dialogService: DialogService) { }
 
   ngOnInit() {
     this.taskForm = new FormGroup({
       title: new FormControl(null),
       description: new FormControl(null),
       person: new FormControl(null),
-      block: new FormControl(false)
+      block: new FormControl(false),
     });
 
     if (this.data.id !== undefined) {
@@ -49,6 +54,7 @@ export class AddTaskPopUpComponent implements OnInit {
         this.taskForm.patchValue({title: res.title});
         this.taskForm.patchValue({description: res.description});
         this.taskForm.patchValue({block: res.blocked});
+        this.subtasks = res.subtaskList;
         if (res.userList[0] !== undefined) {
           this.selectedUser1 = res.userList[0].name + ' ' + res.userList[0].surname;
         }
@@ -71,6 +77,17 @@ export class AddTaskPopUpComponent implements OnInit {
     }
   }
 
+  onAddSubtask() {
+    this.addSubtaskDialog();
+  }
+
+  onDeleteSubtask(subtask) {
+    const index = this.subtasks.indexOf(subtask);
+    if (index > -1) {
+      this.subtasks.splice(index, 1);
+    }
+  }
+
   onSubmit() {
     let taskFormValue = {
       title: this.taskForm.value.title,
@@ -88,6 +105,7 @@ export class AddTaskPopUpComponent implements OnInit {
         taskFormValue.userList.push({name: splitted[0], surname: splitted[1]});
       }
     }
+    taskFormValue.subtaskList = this.subtasks;
     if (this.editMode) {
       taskFormValue = {...taskFormValue, ...{id: this.data.id}};
       this.taskService.patchTaskWithUser(taskFormValue).subscribe(() => this.dialogRef.close());
@@ -103,4 +121,15 @@ export class AddTaskPopUpComponent implements OnInit {
       this.users = res.userList;
     });
   }
+
+  addSubtaskDialog() {
+    const dialogRef = this.dialogService.openDialog(AddSubtaskPopUpComponent, {
+      height: '300px',
+      width: '300px',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.subtasks.push({description: result, completionStatus: false});
+    });
+  }
+
 }

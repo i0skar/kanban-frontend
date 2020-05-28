@@ -1,0 +1,18 @@
+<mat-form-field appearance="fill" style="display: block;">
+  <mat-label>Subtask description</mat-label>
+  <textarea 
+    matInput
+    [(ngModel)]="description2"
+    type="text"
+    rows="8">
+  </textarea>
+</mat-form-field>
+<div fxLayout="row" fxLayoutGap="10px" style="float: right;">
+  <button mat-button mat-dialog-close style="border: 1px solid rgb(33, 214, 33); color:rgb(33, 214, 33);">
+    Cancel
+  </button>
+  <button (click)="closeDialog()" mat-button mat-dialog-close
+    style="background-color: rgb(33, 214, 33); color: white;">
+    + Add
+  </button>
+</div>

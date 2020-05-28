@@ -1,65 +1,80 @@
 <div class="example-container">
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-
-    <mat-form-field appearance="fill" style="display: block;">
-      <mat-label>Title</mat-label>
-      <input 
-        matInput 
-        formControlName="title"
-        type="text">
-    </mat-form-field>
-
-    <br>
-
-    <mat-form-field appearance="fill" style="display: block;">
-      <mat-label>Description</mat-label>
-      <textarea 
-        matInput
-        formControlName="description"
-        type="text"
-        rows="10">
-      </textarea>
-    </mat-form-field>
-
     <div fxLayout="row" fxLayoutGap="28px">
-      <div fxFlex="50" fxLayout="column">
-        <mat-form-field appearance="fill">
-          <mat-label>Assign to</mat-label>
-          <mat-select [(value)]="selectedUser1">
-            <mat-option [value]="none">None</mat-option>
-            <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}}</mat-option>
-          </mat-select>
+      <div fxFlex="50" class="border">
+        <mat-form-field appearance="fill" style="display: block;">
+          <mat-label>Title</mat-label>
+          <input 
+            matInput 
+            formControlName="title"
+            type="text">
         </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Assign to</mat-label>
-          <mat-select [(value)]="selectedUser2">
-            <mat-option [value]="none">None</mat-option>
-            <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}}</mat-option>
-          </mat-select>
+        <br>
+        <mat-form-field appearance="fill" style="display: block;">
+          <mat-label>Description</mat-label>
+          <textarea 
+            matInput
+            formControlName="description"
+            type="text"
+            rows="10">
+          </textarea>
         </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Assign to</mat-label>
-          <mat-select [(value)]="selectedUser3">
-            <mat-option [value]="none">None</mat-option>
-            <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}}</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div fxLayout="row" fxLayoutGap="28px">
+          <div fxFlex="50" fxLayout="column">
+            <mat-form-field appearance="fill">
+              <mat-label>Assign to</mat-label>
+              <mat-select [(value)]="selectedUser1">
+                <mat-option [value]="none">None</mat-option>
+                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Assign to</mat-label>
+              <mat-select [(value)]="selectedUser2">
+                <mat-option [value]="none">None</mat-option>
+                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Assign to</mat-label>
+              <mat-select [(value)]="selectedUser3">
+                <mat-option [value]="none">None</mat-option>
+                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div fxFlex="50" fxLayout="column">
+            <mat-form-field appearance="fill" *ngIf="!editMode">
+              <mat-label>Insert into</mat-label>
+              <mat-select [(value)]="selectedRow">
+                <mat-option *ngFor="let row of rows" [value]="row">{{row}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Color</mat-label>
+              <mat-select [(value)]="selectedColor">
+                <mat-option [value]="none">None</mat-option>
+                <mat-option *ngFor="let color of colors" [value]="color">{{color}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-checkbox formControlName="block" color="primary">Blocked</mat-checkbox>
+          </div>
+        </div>
       </div>
-      <div fxFlex="50" fxLayout="column">
-        <mat-form-field appearance="fill" *ngIf="!editMode">
-          <mat-label>Insert into</mat-label>
-          <mat-select [(value)]="selectedRow">
-            <mat-option *ngFor="let row of rows" [value]="row">{{row}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Color</mat-label>
-          <mat-select [(value)]="selectedColor">
-            <mat-option [value]="none">None</mat-option>
-            <mat-option *ngFor="let color of colors" [value]="color">{{color}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-checkbox formControlName="block" color="primary">Blocked</mat-checkbox>
+
+      <div fxFlex="50" class="border">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="label-subtasks">Subtasks</div>
+          <div class="new-subtask-button">
+            <span class="material-icons" matTooltip="Add new subtask" (click)="onAddSubtask()">add_box</span>
+          </div>
+        </div>
+        <div fxLayout="column">
+          <div fxLayout="row" fxLayoutAlign=" center" *ngFor="let subtask of subtasks">
+            <mat-checkbox fxFlex="95" [(ngModel)]="subtask.completionStatus" [ngModelOptions]="{standalone: true}" class="single-subtask" color="primary">{{subtask.description}}</mat-checkbox>
+            <span fxFlex="5" class="material-icons delete" (click)="onDeleteSubtask(subtask)">clear</span>
+          </div>
+        </div>
       </div>
     </div>
     <div fxLayout="row" fxLayoutGap="10px" style="float: right; margin-top: 10px; justify-content: flex-end;">

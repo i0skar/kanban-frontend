@@ -9,11 +9,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddUserPopUpComponent } from './components/add-user-pop-up/add-user-pop-up.component';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AddSubtaskPopUpComponent } from './components/add-subtask-pop-up/add-subtask-pop-up.component';
 
 @NgModule({
     declarations: [
         AddTaskPopUpComponent,
         AddUserPopUpComponent,
+        AddSubtaskPopUpComponent
     ],
     imports: [
         CommonModule,

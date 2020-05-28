@@ -80,8 +80,8 @@ export class SwimlaneComponent implements OnInit {
   editTaskDialog(id: number) {
     const dialogRef = this.dialogService.openDialog(AddTaskPopUpComponent, {
       data: { id },
-      height: '685px',
-      width: '500px',
+      height: '710px',
+      width: '1000px',
     });
 
     dialogRef.afterClosed().subscribe(() => {
