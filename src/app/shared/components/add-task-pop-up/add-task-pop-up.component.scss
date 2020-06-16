@@ -1,7 +1,15 @@
-.border {
+.border-task {
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 4px;
     padding: 10px;
+    background-color: rgba(220, 227, 233, 0.31);
+}
+
+.border-subtask {
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #e9eee7a1;
 }
 
 .label-subtasks {
@@ -10,7 +18,7 @@
 }
 
 .single-subtask {
-    background-color: #F0F0F0;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 3px;
     margin: 5px;

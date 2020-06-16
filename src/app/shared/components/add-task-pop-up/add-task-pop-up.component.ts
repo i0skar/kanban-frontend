@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { TaskService } from '../../services/task.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
@@ -27,7 +27,7 @@ export class AddTaskPopUpComponent implements OnInit {
   selectedUser1;
   selectedUser2;
   selectedUser3;
-  selectedRow;
+  // selectedRow;
   selectedColor = 'none';
   none = 'None';
 
@@ -41,10 +41,11 @@ export class AddTaskPopUpComponent implements OnInit {
 
   ngOnInit() {
     this.taskForm = new FormGroup({
-      title: new FormControl(null),
-      description: new FormControl(null),
+      title: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required]),
       person: new FormControl(null),
       block: new FormControl(false),
+      selectedRow: new FormControl(null)
     });
 
     if (this.data.id !== undefined) {
@@ -111,7 +112,7 @@ export class AddTaskPopUpComponent implements OnInit {
       this.taskService.patchTaskWithUser(taskFormValue).subscribe(() => this.dialogRef.close());
     }
     if (!this.editMode) {
-      taskFormValue = {...taskFormValue, ...{priority: this.selectedRow}};
+      taskFormValue = {...taskFormValue, ...{priority: this.taskForm.value.selectedRow}};
       this.taskService.addTaskWithUser(taskFormValue).subscribe(() => this.dialogRef.close());
     }
   }

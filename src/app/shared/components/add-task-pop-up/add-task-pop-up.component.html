@@ -1,13 +1,14 @@
 <div class="example-container">
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <div fxLayout="row" fxLayoutGap="28px">
-      <div fxFlex="50" class="border">
+      <div fxFlex="50" class="border-task">
         <mat-form-field appearance="fill" style="display: block;">
           <mat-label>Title</mat-label>
           <input 
             matInput 
             formControlName="title"
-            type="text">
+            type="text"
+            required>
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill" style="display: block;">
@@ -16,7 +17,8 @@
             matInput
             formControlName="description"
             type="text"
-            rows="10">
+            rows="10"
+            required>
           </textarea>
         </mat-form-field>
         <div fxLayout="row" fxLayoutGap="28px">
@@ -46,7 +48,7 @@
           <div fxFlex="50" fxLayout="column">
             <mat-form-field appearance="fill" *ngIf="!editMode">
               <mat-label>Insert into</mat-label>
-              <mat-select [(value)]="selectedRow">
+              <mat-select formControlName="selectedRow" required>
                 <mat-option *ngFor="let row of rows" [value]="row">{{row}}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -62,7 +64,7 @@
         </div>
       </div>
 
-      <div fxFlex="50" class="border">
+      <div fxFlex="50" class="border-subtask">
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <div class="label-subtasks">Subtasks</div>
           <div class="new-subtask-button">
