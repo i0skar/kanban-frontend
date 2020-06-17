@@ -21,9 +21,6 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-[cdkDragDisabled] {
-  color: red;
-}
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -116,15 +113,15 @@
 
 .block-icon-long {
   position: relative;
-  top: -21px;
-  right: 138px;
+  top: -18px;
+  right: 106px;
   color: #f55151;
 }
 
 .block-icon-short {
   position: relative;
-  top: -21px;
-  right: 97px;
+  top: -18px;
+  right: 65px;
   color: #f55151;
 }
 
