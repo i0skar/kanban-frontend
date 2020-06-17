@@ -129,7 +129,9 @@ export class AddTaskPopUpComponent implements OnInit {
       width: '300px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      this.subtasks.push({description: result, completionStatus: false});
+      if (result !== undefined) {
+        this.subtasks.push({description: result, completionStatus: false});
+      }
     });
   }
 

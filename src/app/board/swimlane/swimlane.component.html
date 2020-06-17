@@ -7,10 +7,11 @@
     <div class="tasks-tab">
       <div cdkDropList [cdkDropListData]="backlog" class="tasks-tab" (cdkDropListDropped)="drop($event, 'Backlog')">
         <div class="task" [style.borderBottom]="setBorderBottomColor(item.color)" *ngFor="let item of backlog" cdkDrag
-          [style.backgroundColor]="setBackgroundColor(item.color)">
+          [style.backgroundColor]="setBackgroundColor(item.color)"
+          [cdkDragDisabled]="item.blocked"
+          (click)="editTaskDialog(item.id)">
           <div class="navigation-items">
             <span class="block-icon-long material-icons" *ngIf="item.blocked">report</span>
-            <span class="edit-icon material-icons" (click)="editTaskDialog(item.id)">create</span>
             <span class="delete-icon material-icons" (click)="delTask(item.id)">delete</span>
           </div>
           <div class="task-title">
@@ -32,11 +33,11 @@
       <div cdkDropList [cdkDropListData]="next" class="tasks-tab" (cdkDropListDropped)="drop($event, 'Next')">
         <div class="task" [style.borderBottom]="setBorderBottomColor(item.color)" *ngFor="let item of next" cdkDrag
           [style.backgroundColor]="setBackgroundColor(item.color)" [style.borderTop]="
-          isNextExceeded(item.userList) ? '4px solid red' : 'none'
-          ">
+            isNextExceeded(item.userList) ? '4px solid red' : 'none'
+          " [cdkDragDisabled]="item.blocked"
+          (click)="editTaskDialog(item.id)">
           <div class="navigation-items">
             <span class="block-icon-long material-icons" *ngIf="item.blocked">report</span>
-            <span class="edit-icon material-icons" (click)="editTaskDialog(item.id)">create</span>
             <span class="delete-icon material-icons" (click)="delTask(item.id)">delete</span>
           </div>
           <div class="task-title">
@@ -60,11 +61,12 @@
           (cdkDropListDropped)="drop($event, 'InProgress', 1)">
           <div class="task-p" [style.borderBottom]="setBorderBottomColor(item.color)" *ngFor="let item of inProgress1"
             cdkDrag [style.backgroundColor]="setBackgroundColor(item.color)" [style.borderTop]="
-            isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
-            ">
+              isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
+            "
+            [cdkDragDisabled]="item.blocked"
+            (click)="editTaskDialog(item.id)">
             <div class="navigation-items">
               <span class="block-icon-short material-icons" *ngIf="item.blocked">report</span>
-              <span class="edit-icon material-icons" (click)="editTaskDialog(item.id)">create</span>
               <span class="delete-icon material-icons" (click)="delTask(item.id)">delete</span>
             </div>
             <div class="task-title">
@@ -87,11 +89,12 @@
           (cdkDropListDropped)="drop($event, 'InProgress', 2)">
           <div class="task-p" [style.borderBottom]="setBorderBottomColor(item.color)" *ngFor="let item of inProgress2"
             cdkDrag [style.backgroundColor]="setBackgroundColor(item.color)" [style.borderTop]="
-            isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
-            ">
+              isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
+            "
+            [cdkDragDisabled]="item.blocked"
+            (click)="editTaskDialog(item.id)">
             <div class="navigation-items">
               <span class="block-icon-short material-icons" *ngIf="item.blocked">report</span>
-              <span class="edit-icon material-icons" (click)="editTaskDialog(item.id)">create</span>
               <span class="delete-icon material-icons" (click)="delTask(item.id)">delete</span>
             </div>
             <div class="task-title">
@@ -114,11 +117,12 @@
           (cdkDropListDropped)="drop($event, 'InProgress', 3)">
           <div class="task-p" [style.borderBottom]="setBorderBottomColor(item.color)" *ngFor="let item of inProgress3"
             cdkDrag [style.backgroundColor]="setBackgroundColor(item.color)" [style.borderTop]="
-            isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
-            ">
+              isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
+            "
+            [cdkDragDisabled]="item.blocked"
+            (click)="editTaskDialog(item.id)">
             <div class="navigation-items">
               <span class="block-icon-short material-icons" *ngIf="item.blocked">report</span>
-              <span class="edit-icon material-icons" (click)="editTaskDialog(item.id)">create</span>
               <span class="delete-icon material-icons" (click)="delTask(item.id)">delete</span>
             </div>
             <div class="task-title">
@@ -141,11 +145,12 @@
           (cdkDropListDropped)="drop($event, 'InProgress', 4)">
           <div class="task-p" [style.borderBottom]="setBorderBottomColor(item.color)" *ngFor="let item of inProgress4"
             cdkDrag [style.backgroundColor]="setBackgroundColor(item.color)" [style.borderTop]="
-            isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
-            ">
+              isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
+            "
+            [cdkDragDisabled]="item.blocked"
+            (click)="editTaskDialog(item.id)">
             <div class="navigation-items">
               <span class="block-icon-short material-icons" *ngIf="item.blocked">report</span>
-              <span class="edit-icon material-icons" (click)="editTaskDialog(item.id)">create</span>
               <span class="delete-icon material-icons" (click)="delTask(item.id)">delete</span>
             </div>
             <div class="task-title">
@@ -168,11 +173,12 @@
           (cdkDropListDropped)="drop($event, 'InProgress', 5)">
           <div class="task-p" [style.borderBottom]="setBorderBottomColor(item.color)" *ngFor="let item of inProgress5"
             cdkDrag [style.backgroundColor]="setBackgroundColor(item.color)" [style.borderTop]="
-            isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
-            ">
+              isInProgressExceeded(item.userList) ? '4px solid red' : 'none'
+            "
+            [cdkDragDisabled]="item.blocked"
+            (click)="editTaskDialog(item.id)">
             <div class="navigation-items">
               <span class="block-icon-short material-icons" *ngIf="item.blocked">report</span>
-              <span class="edit-icon material-icons" (click)="editTaskDialog(item.id)">create</span>
               <span class="delete-icon material-icons" (click)="delTask(item.id)">delete</span>
             </div>
             <div class="task-title">
@@ -196,10 +202,11 @@
     <div class="tasks-tab">
       <div cdkDropList [cdkDropListData]="done" class="tasks-tab" (cdkDropListDropped)="drop($event, 'Done')">
         <div class="task" [style.borderBottom]="setBorderBottomColor(item.color)" *ngFor="let item of done" cdkDrag
-          [style.backgroundColor]="setBackgroundColor(item.color)">
+          [style.backgroundColor]="setBackgroundColor(item.color)"
+          [cdkDragDisabled]="item.blocked"
+          (click)="editTaskDialog(item.id)">
           <div class="navigation-items">
             <span class="block-icon-long material-icons" *ngIf="item.blocked">report</span>
-            <span class="edit-icon material-icons" (click)="editTaskDialog(item.id)">create</span>
             <span class="delete-icon material-icons" (click)="delTask(item.id)">delete</span>
           </div>
           <div class="task-title">

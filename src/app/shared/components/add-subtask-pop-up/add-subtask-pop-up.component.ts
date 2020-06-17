@@ -15,7 +15,9 @@ export class AddSubtaskPopUpComponent implements OnInit {
   }
 
   closeDialog() {
-    this.dialogRef.close(this.description2);
+    if (this.description2 !== undefined) {
+      this.dialogRef.close(this.description2);
+    }
   }
 
 }

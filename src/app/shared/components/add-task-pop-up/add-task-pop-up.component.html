@@ -27,21 +27,21 @@
               <mat-label>Assign to</mat-label>
               <mat-select [(value)]="selectedUser1">
                 <mat-option [value]="none">None</mat-option>
-                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}}</mat-option>
+                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}} {{user.surname}}</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Assign to</mat-label>
               <mat-select [(value)]="selectedUser2">
                 <mat-option [value]="none">None</mat-option>
-                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}}</mat-option>
+                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}} {{user.surname}}</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Assign to</mat-label>
               <mat-select [(value)]="selectedUser3">
                 <mat-option [value]="none">None</mat-option>
-                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}}</mat-option>
+                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}} {{user.surname}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
