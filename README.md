@@ -1,3 +1,4 @@
+# [WORK IN PROGRESS]
 # Kanban Board
 Kanban Board is the application for managing tasks and processes within an organization. The Frontend was created using **Angular 9**.
 
