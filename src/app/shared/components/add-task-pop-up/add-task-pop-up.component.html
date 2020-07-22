@@ -54,7 +54,7 @@
             <mat-form-field appearance="fill">
               <mat-label>Color</mat-label>
               <mat-select [(value)]="selectedColor">
-                <mat-option [value]="none">None</mat-option>
+                <mat-option [value]="none">white</mat-option>
                 <mat-option *ngFor="let color of colors" [value]="color">{{color}}</mat-option>
               </mat-select>
             </mat-form-field>
