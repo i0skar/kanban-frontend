@@ -21,11 +21,11 @@ Lets focus on first swimlane and show main functionalities:
 
 3. Move task from "Backlog" to "Next".
 
-![Alt text]()
+![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/move%20task%20from%20backlog%20to%20next.gif?raw=true)
 
 4. Edit task: assign another user "Umer Sharp", change color, add a subtask.
 
-![Alt text]()
+![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/edit%20task.gif?raw=true)
 
 5. Move the task to "In Progress". Block the task because of unexpected bug - progress cannot be made untill the issue is fixed.
 
