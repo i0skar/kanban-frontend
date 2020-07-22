@@ -29,15 +29,15 @@ Lets focus on first swimlane and show main functionalities:
 
 5. Move the task to "In Progress". Block the task because of unexpected bug - progress cannot be made untill the issue is fixed.
 
-![Alt text]()
+![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/block%20task.gif?raw=true)
 
 6. Unblock the task after the problem was resolved. Move the task to "Done" after it was completed.
 
-![Alt text]()
+![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/move%20to%20done.gif?raw=true)
 
 7. Our task can also be deleted.
 
-![Alt text]()
+![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/delete%20task.gif?raw=true)
 
 
 
