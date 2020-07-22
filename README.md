@@ -49,6 +49,15 @@ Lets focus on first swimlane and show main functionalities:
 
 ## To do list
 
-- a
-- b
-- c
+1. Functional:
+- User panel with all user related options.
+- Swimlanes management.
+- Column customization.
+- Assigning more users to tasks.
+- Showing subtasks also on the main page, not only inside the edit task panel.
+
+2. Visual:
+- Fully responsive design.
+- More transparent Add/Edit task popup.
+- Showing snackbars with confirmations atfer actions such as adding a new task.
+- Color picker for tasks.
