@@ -1,27 +1,46 @@
-# KanbanFrontend
+# Kanban Board
+Kanban Board is the application for managing tasks and processes within an organization. The Frontend was created using **Angular 9**.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
+For the Backend look [here](https://github.com/kanban-netherboys/kanban-backend).
 
-## Development server
+##  Main functionalities
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The application consists of swimlanes. Each swimlane has 5 main column: Priority, Backlog, Next, In Progress (which has another 5 column) and Done.
 
-## Code scaffolding
+![Alt text](https://raw.githubusercontent.com/i0skar/Kanban-frontend/master/readme%20content/main%20page.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Lets focus on first swimlane and show main functionalities:
 
-## Build
+1. Add the new user "Ronald Bell".
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+[screen]
 
-## Running unit tests
+2. Add the new task titled "Make userguide.md to present the project and its functionalities" to the "Backlog". Assign our user.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[screen]
 
-## Running end-to-end tests
+3. Move task from "Backlog" to "Next".
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+[screen]
 
-## Further help
+4. Edit task: assign another user "Umer Sharp", change color, add a subtask.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[screen]
+
+5. Move the task to "In Progress". Block the task because of unexpected bug - progress cannot be made untill the issue is fixed.
+
+[screen]
+
+6. Unblock the task after the problem was resolved. Move the task to "Done" after it was completed.
+
+7. Our task can also be deleted.
+
+
+
+
+
+## To do list
+
+- a
+- b
+- c
