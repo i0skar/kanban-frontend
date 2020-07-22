@@ -28,8 +28,8 @@ export class AddTaskPopUpComponent implements OnInit {
   selectedUser2;
   selectedUser3;
   // selectedRow;
-  selectedColor = 'none';
-  none = 'None';
+  selectedColor = 'white';
+  none = 'white';
 
   subtasks = [];
 
