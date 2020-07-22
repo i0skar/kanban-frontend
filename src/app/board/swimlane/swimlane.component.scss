@@ -111,18 +111,11 @@
   color: grey;
 }
 
-.block-icon-long {
+.block-icon {
   position: relative;
-  top: -18px;
-  right: 106px;
   color: #f55151;
-}
-
-.block-icon-short {
-  position: relative;
   top: -18px;
-  right: 65px;
-  color: #f55151;
+  right: 18px;
 }
 
 .navigation-items {
@@ -187,14 +180,21 @@
   display: flex;
   position: relative;
   float: right;
-  top: -15px;
-  left: 7px;
+  // top: -15px;
+  // left: 7px;
   width: 22px;
   height: 22px;
   background-color: #cbcbcb;
   border-radius: 50%;
   justify-content: center;
   margin-left: 3px;
+}
+
+.owner-icon-wrapper {
+  height: 23px;
+  margin-top: 3px;
+  margin-bottom: -8px;
+  margin-right: -7px;
 }
 
 .owner {

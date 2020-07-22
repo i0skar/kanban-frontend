@@ -10,7 +10,6 @@
             type="text"
             required>
         </mat-form-field>
-        <br>
         <mat-form-field appearance="fill" style="display: block;">
           <mat-label>Description</mat-label>
           <textarea 
@@ -47,7 +46,7 @@
           </div>
           <div fxFlex="50" fxLayout="column">
             <mat-form-field appearance="fill" *ngIf="!editMode">
-              <mat-label>Insert into</mat-label>
+              <mat-label>Priority</mat-label>
               <mat-select formControlName="selectedRow" required>
                 <mat-option *ngFor="let row of rows" [value]="row">{{row}}</mat-option>
               </mat-select>
