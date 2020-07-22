@@ -15,25 +15,31 @@ Lets focus on first swimlane and show main functionalities:
 
 ![Alt text](https://raw.githubusercontent.com/i0skar/Kanban-frontend/master/readme%20content/add%20user.gif?raw=true)
 
+
 2. Add the new task titled "Make userguide.md to present the project and its functionalities" to the "Backlog". Assign our user.
 
 ![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/add%20new%20task.gif?raw=true)
+
 
 3. Move task from "Backlog" to "Next".
 
 ![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/move%20task%20from%20backlog%20to%20next.gif?raw=true)
 
+
 4. Edit task: assign another user "Umer Sharp", change color, add a subtask.
 
 ![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/edit%20task.gif?raw=true)
+
 
 5. Move the task to "In Progress". Block the task because of unexpected bug - progress cannot be made untill the issue is fixed.
 
 ![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/block%20task.gif?raw=true)
 
+
 6. Unblock the task after the problem was resolved. Move the task to "Done" after it was completed.
 
 ![Alt text](https://github.com/i0skar/Kanban-frontend/blob/master/readme%20content/move%20to%20done.gif?raw=true)
+
 
 7. Our task can also be deleted.
 
