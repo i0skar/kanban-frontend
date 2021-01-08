@@ -11,10 +11,10 @@ import { Task } from '../shared/models/task.model';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  backlog = [];
-  next = [];
-  inProgress = [];
-  done = [];
+  // backlog = [];
+  // next = [];
+  // inProgress = [];
+  // done = [];
 
   rowsAndTasks: Task[];
 
