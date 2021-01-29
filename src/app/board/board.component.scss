@@ -9,10 +9,9 @@
 }
 
 ::ng-deep {
-  .mat-fab .mat-button-wrapper {
-    line-height: 14px !important;
-    padding: 0px !important;
-    padding-top: 10px !important;
+  .mat-raised-button {
+    line-height: 20px !important;
+    padding: 10px 0px 10px 14px !important;
   }
 }
 
@@ -100,7 +99,7 @@
   position: relative;
   float: left;
   top: -20px;
-  left: -123px;
+  left: -147px;
   font-size: 21px;
 }
 
@@ -109,7 +108,7 @@
   position: relative;
   float: left;
   top: -20px;
-  left: -91px;
+  left: -124px;
   font-size: 21px;
 }
 
@@ -118,7 +117,7 @@
   position: relative;
   float: left;
   top: -20px;
-  left: -152px;
+  left: -123px;
   font-size: 21px;
 }
 
@@ -127,7 +126,7 @@
   position: relative;
   float: left;
   top: -20px;
-  left: -93px;
+  left: -135px;
   font-size: 21px;
 }
 

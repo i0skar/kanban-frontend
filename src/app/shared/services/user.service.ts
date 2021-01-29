@@ -9,6 +9,7 @@ export class UserService {
 constructor(private http: HttpClient) { }
     addUser(user: User) {
         return this.http.post(environment.apiUrl + 'User/AddUser', user, {responseType: 'text'});
+        // return this.http.post('http://localhost:8080/kanban/user', user);
     }
 
     patchUser(id: number) {

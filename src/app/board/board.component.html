@@ -1,20 +1,33 @@
 <div class="wrapper">
-  <div fxLayout="row" style="padding: 20px;">
+  <div fxLayout="row" style="padding: 20px">
     <div class="tasks-tab-row">
       <div class="tasks-tab-header">
-        <div class="task-tab-title" style="justify-content: center; padding-top: 14px;">
-          PRIORITY
+        <div
+          class="task-tab-title"
+          style="justify-content: center; padding-top: 14px"
+        >
+          Priorytet
         </div>
       </div>
     </div>
     <div class="tasks-tab">
       <div class="tasks-tab-header">
         <div class="task-tab-title">
-          <span class="material-icons" style="color: #41a1f5;">list</span>
-          BACKLOG
-          <span class="material-icons help-icon-backlog" style="color: #41a1f5;"
-            matTooltip="New tasks that are not being currently worked on">help</span>
-          <span class="add-task-button" style="color: #41a1f5;" (click)="addTaskDialog('Backlog')">+</span>
+          <span class="material-icons" style="color: #41a1f5">list</span>
+          Do zrobienia
+          <span
+            class="material-icons help-icon-backlog"
+            style="color: #41a1f5"
+            matTooltip="Zadania nad którymi obecnie nikt nie pracuje"
+            >help</span
+          >
+          <span
+            class="add-task-button"
+            style="color: #41a1f5"
+            (click)="addTaskDialog('Backlog')"
+            matTooltip="Dodaj zadanie do tej kolumny"
+            >+</span
+          >
         </div>
       </div>
     </div>
@@ -22,11 +35,21 @@
     <div class="tasks-tab">
       <div class="tasks-tab-header">
         <div class="task-tab-title">
-          <span class="material-icons" style="color: #e8577a;">list</span>
-          NEXT
-          <span class="material-icons help-icon-next" style="color: #e8577a;"
-            matTooltip="Tasks with a highter priority that will be worked on in near future">help</span>
-          <span class="add-task-button" style="color: #e8577a;" (click)="addTaskDialog('Next')">+</span>
+          <span class="material-icons" style="color: #e8577a">list</span>
+          Następne
+          <span
+            class="material-icons help-icon-next"
+            style="color: #e8577a"
+            matTooltip="Zadania oznaczone przez użytkowników do zrobienia w najbliższym czasie."
+            >help</span
+          >
+          <span
+            class="add-task-button"
+            style="color: #e8577a"
+            (click)="addTaskDialog('Next')"
+            matTooltip="Dodaj zadanie do tej kolumny"
+            >+</span
+          >
         </div>
       </div>
     </div>
@@ -34,10 +57,14 @@
     <div class="tasks-tab-p">
       <div class="tasks-tab-header">
         <div class="task-tab-title">
-          <span class="material-icons" style="color: #ffc400;">list</span>
-          IN PROGRESS
-          <span class="material-icons help-icon-progress" style="color: #ffc400;"
-            matTooltip="Tasks that are currently being completed.">help</span>
+          <span class="material-icons" style="color: #ffc400">list</span>
+          W trakcie
+          <span
+            class="material-icons help-icon-progress"
+            style="color: #ffc400"
+            matTooltip="Zadania w trakcie robienia."
+            >help</span
+          >
         </div>
       </div>
     </div>
@@ -45,18 +72,32 @@
     <div class="tasks-tab">
       <div class="tasks-tab-header">
         <div class="task-tab-title">
-          <span class="material-icons" style="color: #45e217;">list</span>
-          DONE
-          <span class="material-icons help-icon-done" style="color: #45e217;" matTooltip="Completed tasks">help</span>
+          <span class="material-icons" style="color: #45e217">list</span>
+          Ukończone
+          <span
+            class="material-icons help-icon-done"
+            style="color: #45e217"
+            matTooltip="Zadania ukończone"
+            >help</span
+          >
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<app-swimlane *ngFor="let rowAndTasks of rowsAndTasks" [rowAndTasks]="rowAndTasks" (del)="delTask($event)"
-  (edit)="reloadTasks()"></app-swimlane>
+<app-swimlane
+  *ngFor="let rowAndTasks of rowsAndTasks"
+  [rowAndTasks]="rowAndTasks"
+  (del)="delTask($event)"
+  (edit)="reloadTasks()"
+></app-swimlane>
 
-  <button mat-fab class="add-user" (click)="addUserDialog()">
-    Add<br />user
-  </button>
+<button
+  mat-raised-button
+  class="add-user"
+  (click)="addUserDialog()"
+  matTooltip="Dodaj użytkownika"
+>
+  + <span class="material-icons" style="font-size: 30px"> account_circle </span>
+</button>

@@ -6,6 +6,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { DialogService } from '../../services/dialog.service';
 import { AddSubtaskPopUpComponent } from '../add-subtask-pop-up/add-subtask-pop-up.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-task-pop-up',
@@ -22,12 +23,16 @@ export class AddTaskPopUpComponent implements OnInit {
   users: User[];
   rows = [1, 2, 3, 4];
 
-  colors = ['red', 'green', 'blue', 'yellow'];
+  colors = [
+    {name: 'Czerwony', value: 'red'},
+    {name: 'Zielony', value: 'green'},
+    {name: 'Niebieski', value: 'blue'},
+    {name: 'Żółty', value: 'yellow'}
+  ];
 
   selectedUser1;
   selectedUser2;
   selectedUser3;
-  // selectedRow;
   selectedColor = 'white';
   none = 'white';
 
@@ -37,15 +42,16 @@ export class AddTaskPopUpComponent implements OnInit {
               private userService: UserService,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private dialogRef: MatDialogRef<AddTaskPopUpComponent>,
-              private dialogService: DialogService) { }
+              private dialogService: DialogService,
+              private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.taskForm = new FormGroup({
       title: new FormControl(null, [Validators.required]),
-      description: new FormControl(null, [Validators.required]),
+      description: new FormControl(null),
       person: new FormControl(null),
       block: new FormControl(false),
-      selectedRow: new FormControl(null)
+      selectedRow: new FormControl(1)
     });
 
     if (this.data.id !== undefined) {
@@ -109,11 +115,27 @@ export class AddTaskPopUpComponent implements OnInit {
     taskFormValue.subtaskList = this.subtasks;
     if (this.editMode) {
       taskFormValue = {...taskFormValue, ...{id: this.data.id}};
-      this.taskService.patchTaskWithUser(taskFormValue).subscribe(() => this.dialogRef.close());
+      this.taskService.patchTaskWithUser(taskFormValue).subscribe(
+        res => {
+          this.dialogRef.close();
+          this._snackBar.open('Zadanie zostało edytowane.', null, {
+            duration: 3000,
+            panelClass: ['info-snackbar']
+          });
+        }
+      );
     }
     if (!this.editMode) {
       taskFormValue = {...taskFormValue, ...{priority: this.taskForm.value.selectedRow}};
-      this.taskService.addTaskWithUser(taskFormValue).subscribe(() => this.dialogRef.close());
+      this.taskService.addTaskWithUser(taskFormValue).subscribe(
+        res => {
+          this.dialogRef.close();
+          this._snackBar.open('Zadanie zostało dodane.', null, {
+            duration: 3000,
+            panelClass: ['info-snackbar']
+          });
+        }
+      );
     }
   }
 
@@ -129,10 +151,9 @@ export class AddTaskPopUpComponent implements OnInit {
       width: '300px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      if (result !== undefined) {
+      if (result !== undefined && result !== '') {
         this.subtasks.push({description: result, completionStatus: false});
       }
     });
   }
-
 }

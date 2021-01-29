@@ -9,6 +9,7 @@ export class TaskService {
 constructor(private http: HttpClient) { }
   addTaskWithUser(task: Task) {
     return this.http.post(environment.apiUrl + 'KanbanTask/AddTaskWithUser', task, {responseType: 'text'});
+    // return this.http.post('http://localhost:8080/kanban/task', task);
   }
 
   patchTaskStatus(status: {status: string}, id: number) {
@@ -29,6 +30,7 @@ constructor(private http: HttpClient) { }
 
   getTasksByPriority() {
     return this.http.get(environment.apiUrl + 'KanbanTask/GetTasksByPriority');
+    // return this.http.get('http://localhost:8080/kanban/tasks');
   }
 
   deleteTask(id: number) {

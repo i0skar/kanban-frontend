@@ -4,6 +4,7 @@ import { DialogService } from 'src/app/shared/services/dialog.service';
 import { AddUserPopUpComponent } from 'src/app/shared/components/add-user-pop-up/add-user-pop-up.component';
 import { AddTaskPopUpComponent } from 'src/app/shared/components/add-task-pop-up/add-task-pop-up.component';
 import { Task } from '../shared/models/task.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-board',
@@ -11,15 +12,12 @@ import { Task } from '../shared/models/task.model';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  // backlog = [];
-  // next = [];
-  // inProgress = [];
-  // done = [];
 
   rowsAndTasks: Task[];
 
   constructor(private taskService: TaskService,
-              private dialogService: DialogService) { }
+              private dialogService: DialogService,
+              private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getTasksByPriority();
@@ -52,6 +50,10 @@ export class BoardComponent implements OnInit {
   delTask(id: number) {
     this.taskService.deleteTask(id).subscribe(() => {
       this.getTasksByPriority();
+      this._snackBar.open('Zadanie zostało usunięte.', null, {
+            duration: 3000,
+            panelClass: ['info-snackbar']
+      });
     });
   }
 

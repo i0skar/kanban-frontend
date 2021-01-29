@@ -2,94 +2,133 @@
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <div fxLayout="row" fxLayoutGap="28px">
       <div fxFlex="50" class="border-task">
-        <mat-form-field appearance="fill" style="display: block;">
-          <mat-label>Title</mat-label>
-          <input 
-            matInput 
-            formControlName="title"
-            type="text"
-            required>
+        <mat-form-field appearance="fill" style="display: block">
+          <mat-label>Tytuł</mat-label>
+          <input matInput formControlName="title" type="text" required />
         </mat-form-field>
-        <mat-form-field appearance="fill" style="display: block;">
-          <mat-label>Description</mat-label>
-          <textarea 
+        <mat-form-field appearance="fill" style="display: block">
+          <mat-label>Opis</mat-label>
+          <textarea
             matInput
             formControlName="description"
             type="text"
             rows="10"
-            required>
+          >
           </textarea>
         </mat-form-field>
         <div fxLayout="row" fxLayoutGap="28px">
           <div fxFlex="50" fxLayout="column">
             <mat-form-field appearance="fill">
-              <mat-label>Assign to</mat-label>
+              <mat-label>Przypisz do</mat-label>
               <mat-select [(value)]="selectedUser1">
-                <mat-option [value]="none">None</mat-option>
-                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}} {{user.surname}}</mat-option>
+                <mat-option [value]="none">brak</mat-option>
+                <mat-option
+                  *ngFor="let user of users"
+                  [value]="user.name + ' ' + user.surname"
+                  >{{ user.name }} {{ user.surname }}</mat-option
+                >
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
-              <mat-label>Assign to</mat-label>
+              <mat-label>Przypisz do</mat-label>
               <mat-select [(value)]="selectedUser2">
-                <mat-option [value]="none">None</mat-option>
-                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}} {{user.surname}}</mat-option>
+                <mat-option [value]="none">brak</mat-option>
+                <mat-option
+                  *ngFor="let user of users"
+                  [value]="user.name + ' ' + user.surname"
+                  >{{ user.name }} {{ user.surname }}</mat-option
+                >
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
-              <mat-label>Assign to</mat-label>
+              <mat-label>Przypisz do</mat-label>
               <mat-select [(value)]="selectedUser3">
-                <mat-option [value]="none">None</mat-option>
-                <mat-option *ngFor="let user of users" [value]="user.name + ' ' + user.surname">{{user.name}} {{user.surname}}</mat-option>
+                <mat-option [value]="none">brak</mat-option>
+                <mat-option
+                  *ngFor="let user of users"
+                  [value]="user.name + ' ' + user.surname"
+                  >{{ user.name }} {{ user.surname }}</mat-option
+                >
               </mat-select>
             </mat-form-field>
           </div>
           <div fxFlex="50" fxLayout="column">
             <mat-form-field appearance="fill" *ngIf="!editMode">
-              <mat-label>Priority</mat-label>
+              <mat-label>Priorytet</mat-label>
               <mat-select formControlName="selectedRow" required>
-                <mat-option *ngFor="let row of rows" [value]="row">{{row}}</mat-option>
+                <mat-option *ngFor="let row of rows" [value]="row">{{
+                  row
+                }}</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
-              <mat-label>Color</mat-label>
+              <mat-label>Kolor</mat-label>
               <mat-select [(value)]="selectedColor">
-                <mat-option [value]="none">white</mat-option>
-                <mat-option *ngFor="let color of colors" [value]="color">{{color}}</mat-option>
+                <mat-option [value]="none">Biały</mat-option>
+                <mat-option
+                  *ngFor="let color of colors"
+                  [value]="color.value"
+                  >{{ color.name }}</mat-option
+                >
               </mat-select>
             </mat-form-field>
-            <mat-checkbox formControlName="block" color="primary">Blocked</mat-checkbox>
+            <mat-checkbox formControlName="block" color="primary"
+              >Zablokowany</mat-checkbox
+            >
           </div>
         </div>
       </div>
 
       <div fxFlex="50" class="border-subtask">
         <div fxLayout="row" fxLayoutAlign="space-between center">
-          <div class="label-subtasks">Subtasks</div>
+          <div class="label-subtasks">Podzadania</div>
           <div class="new-subtask-button">
-            <span class="material-icons" matTooltip="Add new subtask" (click)="onAddSubtask()">add_box</span>
+            <span
+              class="material-icons"
+              matTooltip="Dodaj podzadanie"
+              (click)="onAddSubtask()"
+              style="color: #673ab7"
+              >add_box</span
+            >
           </div>
         </div>
         <div fxLayout="column">
-          <div fxLayout="row" fxLayoutAlign=" center" *ngFor="let subtask of subtasks">
-            <mat-checkbox fxFlex="95" [(ngModel)]="subtask.completionStatus" [ngModelOptions]="{standalone: true}" class="single-subtask" color="primary">{{subtask.description}}</mat-checkbox>
-            <span fxFlex="5" class="material-icons delete" (click)="onDeleteSubtask(subtask)">clear</span>
+          <div
+            fxLayout="row"
+            fxLayoutAlign=" center"
+            *ngFor="let subtask of subtasks"
+          >
+            <mat-checkbox
+              fxFlex="95"
+              [(ngModel)]="subtask.completionStatus"
+              [ngModelOptions]="{ standalone: true }"
+              class="single-subtask"
+              color="primary"
+              >{{ subtask.description }}</mat-checkbox
+            >
+            <span
+              fxFlex="5"
+              class="material-icons delete"
+              (click)="onDeleteSubtask(subtask)"
+              >clear</span
+            >
           </div>
         </div>
       </div>
     </div>
-    <div fxLayout="row" fxLayoutGap="10px" style="float: right; margin-top: 10px; justify-content: flex-end;">
+    <div
+      fxLayout="row"
+      fxLayoutGap="10px"
+      style="float: right; margin-top: 26px; justify-content: flex-end"
+    >
+      <button mat-flat-button mat-dialog-close color="warn">Anuluj</button>
       <button
-        mat-button 
-        mat-dialog-close
-        style="border: 1px solid rgb(33, 214, 33); color:rgb(33, 214, 33);">
-        Cancel
-      </button>
-      <button 
-        mat-button
+        [disabled]="taskForm.status === 'INVALID'"
+        mat-flat-button
         type="submit"
-        style="background-color: rgb(33, 214, 33); color: white;">
-        {{ editMode ? 'Edit' : '+ Add' }}
+        color="primary"
+      >
+        {{ editMode ? "Edytuj" : "+ Dodaj" }}
       </button>
     </div>
   </form>

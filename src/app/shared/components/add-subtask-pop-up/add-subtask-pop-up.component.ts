@@ -7,7 +7,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-subtask-pop-up.component.scss']
 })
 export class AddSubtaskPopUpComponent implements OnInit {
-  description2 = '';
+  description = '';
 
   constructor(private dialogRef: MatDialogRef<AddSubtaskPopUpComponent>) { }
 
@@ -15,9 +15,8 @@ export class AddSubtaskPopUpComponent implements OnInit {
   }
 
   closeDialog() {
-    if (this.description2 !== undefined) {
-      this.dialogRef.close(this.description2);
+    if (this.description !== undefined) {
+      this.dialogRef.close(this.description);
     }
   }
-
 }

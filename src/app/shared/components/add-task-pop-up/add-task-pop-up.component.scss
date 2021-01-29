@@ -1,48 +1,60 @@
 .border-task {
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: 4px;
-    padding: 10px;
-    background-color: rgba(220, 227, 233, 0.31);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+  background-color: rgba(220, 227, 233, 0.31);
 }
 
 .border-subtask {
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: 4px;
-    padding: 10px;
-    background-color: #e9eee7a1;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #e9eee7a1;
 }
 
 .label-subtasks {
-    color: rgba(0, 0, 0, 0.363);
-    margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.363);
+  margin-bottom: 5px;
 }
 
 .single-subtask {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 3px;
-    margin: 5px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 3px;
+  margin: 5px;
 }
 
 ::ng-deep {
-    .mat-checkbox-layout {
-        white-space: pre-wrap !important;
-    }
+  .mat-checkbox-layout {
+    white-space: pre-wrap !important;
   }
+}
 
 .new-subtask-button {
-    color: rgb(33, 214, 33);
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .delete {
-    color: #c81b1b;
-    margin-right: 2px;
-    cursor: pointer;
+  color: #f44336;
+  margin-right: 2px;
+  cursor: pointer;
 }
 
 ::ng-deep {
-    .mat-checkbox-layout .mat-checkbox-label {
-        word-break: break-word !important;
-    }
+  .mat-checkbox-layout {
+    width: 100% !important;
+  }
+
+  .mat-checkbox-layout .mat-checkbox-label {
+    word-break: break-word !important;
+    line-height: 20px !important;
+    padding: 10px !important;
+  }
+}
+
+::ng-deep {
+  .mat-checkbox-inner-container {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
 }
